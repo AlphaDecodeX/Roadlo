@@ -1,0 +1,26 @@
+{
+  "name": "roadlo",
+  "version": "1.0.0",
+  "description": "A decentralized Platform to book Safe Rides at your ease.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlphaDecodeX/Roadlo.git"
+  },
+  "author": "Lovepreet Singh | AlphaDecodeX",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlphaDecodeX/Roadlo/issues"
+  },
+  "homepage": "https://github.com/AlphaDecodeX/Roadlo#readme",
+  "dependencies": {
+    "@truffle/hdwallet-provider": "^2.0.0",
+    "ganache-cli": "^6.12.2",
+    "mocha": "^9.1.3",
+    "solc": "^0.8.10",
+    "web3": "^1.6.1"
+  }
+}
