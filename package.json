@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A decentralized Platform to book Safe Rides at your ease.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "mocha"
   },
