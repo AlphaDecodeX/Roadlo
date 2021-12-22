@@ -37,5 +37,6 @@ describe('Driver is ', () => {
     it('Registered Successfully or Deployed', () => {
         assert.ok(driversFactory.options.address);
         assert.ok(registeredDriver.options.address);
-    })
+    });
+    it()
 })
