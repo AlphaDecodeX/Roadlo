@@ -31,5 +31,4 @@ contract RegisterDriver{
         driver.contact = _contact;
         driver.car = _car;
     }
-    
 }

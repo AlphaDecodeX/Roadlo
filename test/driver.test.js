@@ -2,10 +2,10 @@ import assert from 'assert';
 import ganache from 'ganache-cli';
 import Web3 from 'web3';
 
-import DriversRegisterFactory from '../ethereum/build/DriversRegisterFactory.json';
-import RegisterDriver from '../ethereum/build/RegisterDriver.json';
+import DriversRegisterFactory from '../ethereum/build/DriversRegisterFactory.js';
+import RegisterDriver from '../ethereum/build/RegisterDriver.js';
 
-const web3 = Web3(ganache.provider());
+const web3 = new Web3(ganache.provider());
 
 let accounts;
 let driversFactory;
@@ -16,7 +16,7 @@ beforeEach(
     async () => {
         accounts = await web3.eth.getAccounts();
 
-        driversFactory = await new web3.eth.Contract(JSON.parse(DriversRegisterFactory.abi))
+        driversFactory = await new web3.eth.Contract(JSON.parse(JSON.stringify(DriversRegisterFactory.abi)))
             .deploy({ data: DriversRegisterFactory.bytecode })
             .send({ from: accounts[0], gas: '1000000' });
 
@@ -27,7 +27,7 @@ beforeEach(
 
         [driverAddress] = await driversFactory.methods.getDrivers().call();
         registeredDriver = await new web3.eth.Contract(
-            JSON.parse(RegisterDriver.abi),
+            JSON.parse(JSON.stringify(RegisterDriver.abi)),
             driverAddress
         );
     }
@@ -38,5 +38,4 @@ describe('Driver is ', () => {
         assert.ok(driversFactory.options.address);
         assert.ok(registeredDriver.options.address);
     });
-    it('Going to fetch the drivers')
 })
